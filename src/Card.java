@@ -35,21 +35,17 @@ public class Card {
     }
 
 
-    // Static method to get the blackjack value based on the card name
-    public static int getBlackjackValueFromName(String name, int handValue) {
-        switch (name) {
+    // Static method to get the blackjack value based on the card rank (no hand dependency)
+    public static int getBlackjackValueFromName(String rank) {
+        switch (rank) {
             case "Ace":
-                if (handValue + 11 < 22) {
-                return 11;
-                } else {
-                    return 1;
-                }
+                return 11; // Default to 11, adjusted in Player class if needed
             case "King":
             case "Queen":
             case "Jack":
                 return 10;
             default:
-                return Integer.parseInt(name); // Number cards return their own value
+                return Integer.parseInt(rank); // Number cards return their own value
         }
     }
 }

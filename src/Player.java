@@ -47,8 +47,10 @@ public class Player {
         int aceCount = 0;
 
         for (Card card : cardHand) {
-            int cardValue = Card.getBlackjackValueFromName(card.getRank(), totalValue);
+            int cardValue = Card.getBlackjackValueFromName(card.getRank());
             totalValue += cardValue;
+
+            // Count the Aces in hand
             if (card.getRank().equals("Ace")) {
                 aceCount++;
             }
@@ -56,7 +58,7 @@ public class Player {
 
         // Adjust for Aces if totalValue exceeds 21
         while (totalValue > 21 && aceCount > 0) {
-            totalValue -= 10;  // Convert an Ace from 11 to 1
+            totalValue -= 10;  // Treat one Ace as 1 instead of 11
             aceCount--;
         }
 
@@ -85,5 +87,9 @@ public class Player {
     @Override
     public String toString() {
         return "Player: " + name + " | Wins: " + winCount + " | Losses: " + loseCount + " | Hand: " + cardHand;
+    }
+
+    public String shortToString() {
+        return "Player: " + name + " | Hand: " + cardHand;
     }
 }
