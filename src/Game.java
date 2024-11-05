@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
-    private Dealer dealer;
-    private ArrayList<Player> players;
-    private CardStack deck;
-    private Scanner scanner;
+    private final Dealer dealer;
+    private final ArrayList<Player> players;
+    private final CardStack deck;
+    private final Scanner scanner;
 
     public Game() {
         this.dealer = new Dealer("Steve the Dealer");
