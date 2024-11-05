@@ -8,32 +8,21 @@ public class Card {
         this.rank = rank;
     }
 
-    // Getters and setters
+    // Getters
     public String getSuit() {
         return suit;
-    }
-
-    public void setSuit(String suit) {
-        this.suit = suit;
     }
 
     public String getRank() {
         return rank;
     }
 
-    public void setRank(String rank) {
-        this.rank = rank;
-    }
-
-
     // Method to return card description
     @Override
     public String toString() {
-        // Since handValue is unknown, we pass 0 or another default here.
-        int value = getBlackjackValueFromName(this.rank, 0);
+        int value = getBlackjackValueFromName(this.rank);
         return "Card: " + rank + " of " + suit + " (Value: " + value + ")";
     }
-
 
     // Static method to get the blackjack value based on the card rank (no hand dependency)
     public static int getBlackjackValueFromName(String rank) {
